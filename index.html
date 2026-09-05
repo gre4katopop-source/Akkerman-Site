@@ -1,1360 +1,1272 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>AKKERMAN — Złota Rączka Wrocław | Naprawy, Montaż, Hydraulika</title>
-
-    <meta
-        name="description"
-        content="AKKERMAN — złota rączka we Wrocławiu i okolicach. Hydraulika, montaż mebli, naprawy domowe, prace budowlane i wykończenia. Szybka wycena."
-    >
-
-    <meta
-        name="keywords"
-        content="złota rączka Wrocław, hydraulik Wrocław, montaż mebli Wrocław, drobne naprawy Wrocław, fachowiec Wrocław, naprawy domowe Wrocław, remonty Wrocław"
-    >
-
-    <meta name="robots" content="index, follow">
-
-    <meta
-        property="og:title"
-        content="AKKERMAN — Złota Rączka Wrocław"
-    >
-
-    <meta
-        property="og:description"
-        content="Hydraulika, montaż, naprawy, wykończenia i prace budowlane. Wrocław i okolice."
-    >
-
-    <meta
-        property="og:type"
-        content="website"
-    >
-
-    <meta
-        property="og:image"
-        content="images/hero.jpg"
-    >
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
-
-    <style>
-
-        :root {
-            --black: #070707;
-            --black-soft: #101010;
-            --black-card: #141414;
-            --gold: #c9a45c;
-            --gold-light: #e6ca8a;
-            --white: #f5f5f2;
-            --muted: #a5a5a0;
-            --border: rgba(255,255,255,.09);
-            --max: 1240px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: var(--black);
-            color: var(--white);
-            font-family: Inter, sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        button,
-        input,
-        textarea,
-        select {
-            font: inherit;
-        }
-
-        .container {
-            width: min(92%, var(--max));
-            margin: auto;
-        }
-
-        .gold {
-            color: var(--gold-light);
-        }
-
-        /* =========================
-           HEADER
-        ========================= */
-
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 20px 0;
-            transition: .35s ease;
-        }
-
-        header.scrolled {
-            background: rgba(7,7,7,.94);
-            backdrop-filter: blur(18px);
-            border-bottom: 1px solid var(--border);
-            padding: 12px 0;
-        }
-
-        .nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-        }
-
-        .logo {
-            font-family: Cinzel, serif;
-            font-size: 26px;
-            font-weight: 800;
-            letter-spacing: 5px;
-        }
-
-        .logo span {
-            color: var(--gold);
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 28px;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .nav-links a {
-            opacity: .8;
-            transition: .25s;
-        }
-
-        .nav-links a:hover {
-            opacity: 1;
-            color: var(--gold-light);
-        }
-
-        .nav-cta {
-            border: 1px solid var(--gold);
-            padding: 11px 17px;
-            color: var(--gold-light);
-        }
-
-        .menu {
-            display: none;
-            font-size: 28px;
-            cursor: pointer;
-        }
-
-        /* =========================
-           HERO
-        ========================= */
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(0,0,0,.9),
-                    rgba(0,0,0,.58),
-                    rgba(0,0,0,.8)
-                ),
-                url("images/hero.jpg") center/cover;
-        }
-
-        .hero::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(
-                    circle at 75% 50%,
-                    rgba(201,164,92,.12),
-                    transparent 35%
-                );
-            pointer-events: none;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            padding-top: 70px;
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--gold-light);
-            font-size: 12px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 25px;
-        }
-
-        .eyebrow::before {
-            content: "";
-            width: 35px;
-            height: 1px;
-            background: var(--gold);
-        }
-
-        h1 {
-            font-family: Cinzel, serif;
-            font-size: clamp(48px, 8vw, 96px);
-            line-height: .98;
-            letter-spacing: 3px;
-            margin-bottom: 28px;
-        }
-
-        .hero h1 span {
-            color: var(--gold-light);
-        }
-
-        .hero-text {
-            color: #c8c8c3;
-            font-size: 18px;
-            max-width: 650px;
-            margin-bottom: 35px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            min-height: 52px;
-            padding: 0 25px;
-            border: 1px solid var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 1.4px;
-            font-size: 12px;
-            font-weight: 700;
-            transition: .3s;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: var(--gold);
-            color: #080808;
-        }
-
-        .btn-primary:hover {
-            background: var(--gold-light);
-            transform: translateY(-2px);
-        }
-
-        .btn-outline:hover {
-            background: var(--gold);
-            color: #000;
-        }
-
-        .hero-trust {
-            display: flex;
-            gap: 28px;
-            margin-top: 50px;
-            flex-wrap: wrap;
-        }
-
-        .trust-item {
-            font-size: 12px;
-            color: #c6c6c1;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .trust-item strong {
-            display: block;
-            color: var(--gold-light);
-            font-size: 16px;
-            margin-bottom: 3px;
-        }
-
-        /* =========================
-           SECTIONS
-        ========================= */
-
-        section {
-            padding: 110px 0;
-        }
-
-        .section-head {
-            max-width: 700px;
-            margin-bottom: 55px;
-        }
-
-        .section-kicker {
-            color: var(--gold-light);
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 14px;
-        }
-
-        h2 {
-            font-family: Cinzel, serif;
-            font-size: clamp(32px, 5vw, 58px);
-            line-height: 1.1;
-            margin-bottom: 18px;
-        }
-
-        .section-head p {
-            color: var(--muted);
-            font-size: 16px;
-        }
-
-        /* =========================
-           ABOUT
-        ========================= */
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 70px;
-            align-items: center;
-        }
-
-        .about-image {
-            min-height: 540px;
-            background:
-                linear-gradient(
-                    rgba(0,0,0,.15),
-                    rgba(0,0,0,.4)
-                ),
-                url("images/hero.jpg") center/cover;
-        }
-
-        .about-copy p {
-            color: var(--muted);
-            margin-bottom: 20px;
-            font-size: 17px;
-        }
-
-        .gold-line {
-            width: 70px;
-            height: 2px;
-            background: var(--gold);
-            margin: 28px 0;
-        }
-
-        /* =========================
-           STATS
-        ========================= */
-
-        .stats {
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-            padding: 35px 0;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat strong {
-            display: block;
-            font-family: Cinzel, serif;
-            color: var(--gold-light);
-            font-size: 34px;
-        }
-
-        .stat span {
-            color: var(--muted);
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* =========================
-           SERVICES
-        ========================= */
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
-        }
-
-        .service {
-            background: var(--black-card);
-            border: 1px solid var(--border);
-            padding: 34px;
-            min-height: 240px;
-            transition: .3s;
-        }
-
-        .service:hover {
-            transform: translateY(-7px);
-            border-color: rgba(201,164,92,.5);
-        }
-
-        .service-number {
-            color: var(--gold);
-            font-size: 12px;
-            letter-spacing: 2px;
-            margin-bottom: 35px;
-        }
-
-        .service h3 {
-            font-family: Cinzel, serif;
-            font-size: 23px;
-            margin-bottom: 12px;
-        }
-
-        .service p {
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        /* =========================
-           BEFORE / AFTER
-        ========================= */
-
-        .gallery {
-            background: #0b0b0b;
-        }
-
-        .gallery-filter {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-bottom: 35px;
-        }
-
-        .filter-btn {
-            background: transparent;
-            border: 1px solid var(--border);
-            color: var(--muted);
-            padding: 10px 16px;
-            cursor: pointer;
-            text-transform: uppercase;
-            font-size: 11px;
-            letter-spacing: 1px;
-        }
-
-        .filter-btn.active,
-        .filter-btn:hover {
-            color: #000;
-            background: var(--gold);
-            border-color: var(--gold);
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-        .gallery-card {
-            background: var(--black-card);
-            border: 1px solid var(--border);
-            overflow: hidden;
-        }
-
-        .ba-wrapper {
-            position: relative;
-            aspect-ratio: 16/10;
-            overflow: hidden;
-            user-select: none;
-        }
-
-        .ba-after,
-        .ba-before {
-            position: absolute;
-            inset: 0;
-        }
-
-        .ba-after img,
-        .ba-before img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            pointer-events: none;
-        }
-
-        .ba-before {
-            width: 50%;
-            overflow: hidden;
-            z-index: 2;
-        }
-
-        .ba-before img {
-            width: 200%;
-            max-width: none;
-        }
-
-        .ba-label {
-            position: absolute;
-            top: 16px;
-            z-index: 5;
-            padding: 7px 10px;
-            background: rgba(0,0,0,.78);
-            color: white;
-            font-size: 10px;
-            letter-spacing: 2px;
-            font-weight: 700;
-        }
-
-        .ba-label.before {
-            left: 16px;
-        }
-
-        .ba-label.after {
-            right: 16px;
-        }
-
-        .ba-handle {
-            position: absolute;
-            z-index: 10;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            width: 3px;
-            background: white;
-            transform: translateX(-50%);
-            cursor: ew-resize;
-        }
-
-        .ba-handle::before {
-            content: "↔";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            background: var(--gold);
-            color: #000;
-            font-size: 19px;
-            font-weight: 800;
-        }
-
-        .gallery-info {
-            padding: 22px;
-        }
-
-        .gallery-category {
-            color: var(--gold-light);
-            font-size: 10px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .gallery-info h3 {
-            margin: 7px 0;
-            font-family: Cinzel, serif;
-            font-size: 21px;
-        }
-
-        .gallery-info p {
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        /* =========================
-           PRICES
-        ========================= */
-
-        .price-highlight {
-            border: 1px solid var(--gold);
-            background:
-                linear-gradient(
-                    120deg,
-                    rgba(201,164,92,.12),
-                    transparent
-                );
-            padding: 35px;
-            margin-bottom: 35px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-        }
-
-        .price-highlight small {
-            color: var(--muted);
-            display: block;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 10px;
-        }
-
-        .price-highlight strong {
-            font-family: Cinzel, serif;
-            color: var(--gold-light);
-            font-size: 48px;
-        }
-
-        .price-table {
-            border: 1px solid var(--border);
-        }
-
-        .price-row {
-            display: grid;
-            grid-template-columns: 1fr 180px;
-            gap: 20px;
-            padding: 20px 25px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .price-row:last-child {
-            border-bottom: 0;
-        }
-
-        .price-row span:first-child {
-            font-weight: 600;
-        }
-
-        .price {
-            text-align: right;
-            color: var(--gold-light);
-            font-weight: 700;
-        }
-
-        .price-note {
-            margin-top: 20px;
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        /* =========================
-           WHY
-        ========================= */
-
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
-        }
-
-        .why-card {
-            padding: 32px;
-            border: 1px solid var(--border);
-            background: var(--black-card);
-        }
-
-        .why-icon {
-            color: var(--gold);
-            font-size: 24px;
-            margin-bottom: 18px;
-        }
-
-        .why-card h3 {
-            font-family: Cinzel, serif;
-            margin-bottom: 10px;
-        }
-
-        .why-card p {
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        /* =========================
-           PROCESS
-        ========================= */
-
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-            gap: 20px;
-        }
-
-        .process {
-            border-top: 1px solid var(--gold);
-            padding-top: 22px;
-        }
-
-        .process strong {
-            color: var(--gold-light);
-            font-family: Cinzel, serif;
-            font-size: 30px;
-        }
-
-        .process h3 {
-            margin: 15px 0 8px;
-        }
-
-        .process p {
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        /* =========================
-           FORM
-        ========================= */
-
-        .contact-section {
-            background:
-                radial-gradient(
-                    circle at 80% 50%,
-                    rgba(201,164,92,.12),
-                    transparent 35%
-                ),
-                #0c0c0c;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: .9fr 1.1fr;
-            gap: 60px;
-            align-items: start;
-        }
-
-        .contact-info p {
-            color: var(--muted);
-            margin-bottom: 30px;
-        }
-
-        .contact-links {
-            display: grid;
-            gap: 12px;
-        }
-
-        .contact-link {
-            padding: 18px;
-            border: 1px solid var(--border);
-            background: var(--black-card);
-        }
-
-        .contact-link small {
-            display: block;
-            color: var(--gold);
-            font-size: 10px;
-            letter-spacing: 2px;
-            margin-bottom: 4px;
-        }
-
-        .contact-form {
-            background: var(--black-card);
-            border: 1px solid var(--border);
-            padding: 30px;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 14px;
-        }
-
-        .field {
-            display: grid;
-            gap: 7px;
-            margin-bottom: 14px;
-        }
-
-        .field.full {
-            grid-column: 1 / -1;
-        }
-
-        .field label {
-            color: #bbb;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .field input,
-        .field textarea,
-        .field select {
-            width: 100%;
-            background: #0b0b0b;
-            border: 1px solid var(--border);
-            color: white;
-            padding: 14px;
-            outline: none;
-        }
-
-        .field input:focus,
-        .field textarea:focus,
-        .field select:focus {
-            border-color: var(--gold);
-        }
-
-        textarea {
-            min-height: 130px;
-            resize: vertical;
-        }
-
-        .file-box {
-            border: 1px dashed rgba(201,164,92,.5);
-            padding: 20px;
-            text-align: center;
-            cursor: pointer;
-        }
-
-        .file-box input {
-            margin-top: 10px;
-        }
-
-        .form-status {
-            margin-top: 15px;
-            color: var(--gold-light);
-            font-size: 13px;
-        }
-
-        /* =========================
-           REVIEWS CTA
-        ========================= */
-
-        .reviews-box {
-            text-align: center;
-            padding: 75px 30px;
-            border: 1px solid var(--border);
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(201,164,92,.12),
-                    transparent
-                );
-        }
-
-        .stars {
-            color: var(--gold-light);
-            font-size: 28px;
-            letter-spacing: 5px;
-            margin-bottom: 18px;
-        }
-
-        .reviews-box p {
-            color: var(--muted);
-            max-width: 600px;
-            margin: 0 auto 25px;
-        }
-
-        /* =========================
-           FAQ
-        ========================= */
-
-        .faq {
-            border-top: 1px solid var(--border);
-        }
-
-        .faq-item {
-            border-bottom: 1px solid var(--border);
-        }
-
-        .faq-question {
-            width: 100%;
-            background: transparent;
-            color: white;
-            border: 0;
-            padding: 23px 0;
-            text-align: left;
-            display: flex;
-            justify-content: space-between;
-            cursor: pointer;
-            font-weight: 600;
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: .35s;
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        .faq-answer-inner {
-            padding-bottom: 22px;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 300px;
-        }
-
-        /* =========================
-           CTA
-        ========================= */
-
-        .final-cta {
-            text-align: center;
-            background:
-                linear-gradient(
-                    rgba(0,0,0,.2),
-                    rgba(0,0,0,.2)
-                ),
-                #121212;
-        }
-
-        .final-cta p {
-            color: var(--muted);
-            max-width: 600px;
-            margin: 0 auto 30px;
-        }
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            padding: 35px 0 100px;
-            border-top: 1px solid var(--border);
-        }
-
-        .footer-grid {
-            display: flex;
-            justify-content: space-between;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .footer-copy {
-            color: #777;
-            font-size: 12px;
-        }
-
-        .footer-logo {
-            font-family: Cinzel, serif;
-            letter-spacing: 4px;
-        }
-
-        /* =========================
-           FLOATING MOBILE
-        ========================= */
-
-        .mobile-bar {
-            display: none;
-        }
-
-        /* =========================
-           ANIMATION
-        ========================= */
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(25px);
-            transition: .7s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* =========================
-           RESPONSIVE
-        ========================= */
-
-        @media(max-width: 900px) {
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 70px;
-                left: 4%;
-                right: 4%;
-                background: #0b0b0b;
-                border: 1px solid var(--border);
-                padding: 20px;
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .nav-links.open {
-                display: flex;
-            }
-
-            .menu {
-                display: block;
-            }
-
-            .about-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-image {
-                min-height: 400px;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .process-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .mobile-bar {
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                display: grid;
-                grid-template-columns: repeat(3,1fr);
-                z-index: 2000;
-                background: rgba(5,5,5,.96);
-                border-top: 1px solid var(--border);
-            }
-
-            .mobile-bar a {
-                text-align: center;
-                padding: 14px 5px;
-                font-size: 10px;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                border-right: 1px solid var(--border);
-            }
-
-            .mobile-bar a:last-child {
-                border-right: 0;
-            }
-
-            footer {
-                padding-bottom: 90px;
-            }
-        }
-
-        @media(max-width: 600px) {
-
-            section {
-                padding: 75px 0;
-            }
-
-            h1 {
-                font-size: 48px;
-            }
-
-            .hero-text {
-                font-size: 15px;
-            }
-
-            .hero-trust {
-                gap: 18px;
-            }
-
-            .services-grid,
-            .why-grid,
-            .process-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .price-highlight {
-                display: block;
-            }
-
-            .price-highlight strong {
-                display: block;
-                margin-top: 8px;
-            }
-
-            .price-row {
-                grid-template-columns: 1fr;
-                gap: 5px;
-            }
-
-            .price {
-                text-align: left;
-            }
-
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .field.full {
-                grid-column: auto;
-            }
-
-            .footer-grid {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b0b0b">
+
+<title>AKKERMAN — Złota Rączka Wrocław</title>
+<meta name="description" content="AKKERMAN — złota rączka we Wrocławiu i okolicach. Hydraulika, montaż mebli, naprawy, prace budowlane i wykończeniowe. Konkretna wycena przed rozpoczęciem prac.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#080808;
+    --bg2:#101010;
+    --card:#131313;
+    --card2:#171717;
+    --gold:#c9a45c;
+    --gold2:#e1c27d;
+    --white:#f5f3ee;
+    --muted:#a4a4a4;
+    --line:rgba(255,255,255,.09);
+    --radius:22px;
+    --container:1180px;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+    overflow-x:hidden;
+}
+
+body{
+    background:var(--bg);
+    color:var(--white);
+    font-family:Inter,Arial,sans-serif;
+    overflow-x:hidden;
+    line-height:1.6;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button,
+input,
+select,
+textarea{
+    font:inherit;
+}
+
+.container{
+    width:min(var(--container), calc(100% - 40px));
+    margin:auto;
+}
+
+section{
+    padding:110px 0;
+}
+
+.section-label{
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:12px;
+    font-weight:800;
+    margin-bottom:18px;
+}
+
+.section-title{
+    font-family:Cinzel,serif;
+    font-size:clamp(34px,5vw,62px);
+    line-height:1.08;
+    letter-spacing:-1px;
+    max-width:850px;
+}
+
+.section-text{
+    color:var(--muted);
+    max-width:650px;
+    font-size:17px;
+    margin-top:22px;
+}
+
+.gold{
+    color:var(--gold2);
+}
+
+/* HEADER */
+
+header{
+    position:fixed;
+    z-index:1000;
+    top:0;
+    left:0;
+    width:100%;
+    background:rgba(8,8,8,.82);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid transparent;
+    transition:.3s;
+}
+
+header.scrolled{
+    border-color:var(--line);
+    background:rgba(8,8,8,.95);
+}
+
+.nav{
+    min-height:82px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.logo{
+    font-family:Cinzel,serif;
+    font-weight:700;
+    font-size:23px;
+    letter-spacing:4px;
+    white-space:nowrap;
+}
+
+.logo span{
+    color:var(--gold);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:30px;
+}
+
+.nav-links a{
+    color:#ccc;
+    font-size:13px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    transition:.25s;
+}
+
+.nav-links a:hover{
+    color:var(--gold2);
+}
+
+.nav-cta{
+    background:var(--gold);
+    color:#090909!important;
+    padding:13px 20px;
+    border-radius:100px;
+}
+
+.menu-btn{
+    display:none;
+    border:0;
+    background:none;
+    color:white;
+    font-size:27px;
+    cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100svh;
+    padding-top:150px;
+    padding-bottom:70px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    background:
+        radial-gradient(circle at 80% 30%,rgba(201,164,92,.12),transparent 30%),
+        radial-gradient(circle at 15% 80%,rgba(255,255,255,.04),transparent 25%);
+}
+
+.hero:after{
+    content:"";
+    position:absolute;
+    width:520px;
+    height:520px;
+    border-radius:50%;
+    background:rgba(201,164,92,.06);
+    filter:blur(100px);
+    right:-200px;
+    top:100px;
+    pointer-events:none;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.hero-kicker{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    color:var(--gold2);
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:12px;
+    font-weight:800;
+    margin-bottom:25px;
+}
+
+.hero-kicker:before{
+    content:"";
+    width:35px;
+    height:1px;
+    background:var(--gold);
+}
+
+.hero h1{
+    font-family:Cinzel,serif;
+    font-size:clamp(45px,8vw,92px);
+    line-height:.98;
+    letter-spacing:-2px;
+    max-width:1050px;
+}
+
+.hero h1 span{
+    color:var(--gold2);
+}
+
+.hero-description{
+    color:#b8b8b8;
+    max-width:650px;
+    font-size:18px;
+    margin-top:28px;
+}
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-top:36px;
+}
+
+.btn{
+    min-height:54px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    padding:0 24px;
+    border-radius:100px;
+    border:1px solid var(--line);
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    transition:.25s;
+    cursor:pointer;
+}
+
+.btn-primary{
+    background:var(--gold);
+    color:#080808;
+    border-color:var(--gold);
+}
+
+.btn-primary:hover{
+    background:var(--gold2);
+    transform:translateY(-2px);
+}
+
+.btn-secondary{
+    background:rgba(255,255,255,.03);
+    color:white;
+}
+
+.btn-secondary:hover{
+    border-color:var(--gold);
+    color:var(--gold2);
+}
+
+.hero-points{
+    margin-top:65px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    max-width:900px;
+    border-top:1px solid var(--line);
+    padding-top:28px;
+}
+
+.hero-point{
+    padding-right:25px;
+    border-right:1px solid var(--line);
+}
+
+.hero-point:not(:first-child){
+    padding-left:25px;
+}
+
+.hero-point:last-child{
+    border-right:0;
+}
+
+.point-number{
+    color:var(--gold);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:2px;
+    margin-bottom:8px;
+}
+
+.hero-point strong{
+    display:block;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+}
+
+.hero-point p{
+    color:#888;
+    font-size:13px;
+    margin-top:6px;
+}
+
+/* ABOUT */
+
+.about{
+    background:#0d0d0d;
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
+    align-items:center;
+}
+
+.about-card{
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:45px;
+    background:
+        linear-gradient(145deg,rgba(201,164,92,.08),transparent 40%),
+        var(--card);
+}
+
+.about-card-number{
+    font-family:Cinzel,serif;
+    color:var(--gold);
+    font-size:80px;
+    line-height:1;
+    opacity:.7;
+}
+
+.about-card h3{
+    font-family:Cinzel,serif;
+    font-size:28px;
+    margin-top:20px;
+}
+
+.about-card p{
+    color:var(--muted);
+    margin-top:15px;
+}
+
+.check-list{
+    margin-top:30px;
+    display:grid;
+    gap:16px;
+}
+
+.check{
+    display:flex;
+    gap:13px;
+    align-items:flex-start;
+}
+
+.check-icon{
+    width:23px;
+    height:23px;
+    min-width:23px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:rgba(201,164,92,.12);
+    color:var(--gold);
+    font-size:12px;
+    margin-top:2px;
+}
+
+.check strong{
+    display:block;
+    font-size:14px;
+}
+
+.check p{
+    color:#888;
+    font-size:13px;
+    margin-top:2px;
+}
+
+/* SERVICES */
+
+.services-grid{
+    margin-top:55px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+}
+
+.service{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:30px;
+    min-height:235px;
+    transition:.3s;
+    position:relative;
+    overflow:hidden;
+}
+
+.service:before{
+    content:"";
+    position:absolute;
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    background:rgba(201,164,92,.06);
+    filter:blur(30px);
+    right:-60px;
+    top:-60px;
+}
+
+.service:hover{
+    transform:translateY(-5px);
+    border-color:rgba(201,164,92,.35);
+}
+
+.service-number{
+    color:var(--gold);
+    font-size:11px;
+    letter-spacing:2px;
+    font-weight:800;
+}
+
+.service h3{
+    font-family:Cinzel,serif;
+    font-size:25px;
+    margin-top:38px;
+}
+
+.service p{
+    color:#909090;
+    font-size:14px;
+    margin-top:12px;
+}
+
+/* PRICES */
+
+.prices{
+    background:#0d0d0d;
+}
+
+.price-highlight{
+    margin-top:45px;
+    border:1px solid rgba(201,164,92,.4);
+    border-radius:var(--radius);
+    padding:35px 40px;
+    background:
+        linear-gradient(100deg,rgba(201,164,92,.12),transparent 60%),
+        #121212;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.price-highlight small{
+    color:var(--gold2);
+    text-transform:uppercase;
+    letter-spacing:2px;
+    font-weight:800;
+}
+
+.price-highlight strong{
+    display:block;
+    font-family:Cinzel,serif;
+    font-size:42px;
+    margin-top:4px;
+}
+
+.price-highlight p{
+    color:#999;
+    font-size:13px;
+    max-width:480px;
+}
+
+.price-table{
+    margin-top:18px;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+}
+
+.price-row{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:20px;
+    align-items:center;
+    padding:22px 28px;
+    border-bottom:1px solid var(--line);
+}
+
+.price-row:last-child{
+    border-bottom:0;
+}
+
+.price-name strong{
+    display:block;
+    font-size:15px;
+}
+
+.price-name span{
+    display:block;
+    color:#777;
+    font-size:12px;
+    margin-top:3px;
+}
+
+.price-value{
+    color:var(--gold2);
+    font-weight:800;
+    white-space:nowrap;
+}
+
+/* WHY */
+
+.why-grid{
+    margin-top:55px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+}
+
+.why{
+    padding:28px;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    background:var(--card);
+}
+
+.why-number{
+    font-family:Cinzel,serif;
+    color:var(--gold);
+    font-size:30px;
+}
+
+.why h3{
+    font-size:15px;
+    margin-top:30px;
+}
+
+.why p{
+    color:#818181;
+    font-size:13px;
+    margin-top:8px;
+}
+
+/* PROCESS */
+
+.process{
+    background:#0d0d0d;
+}
+
+.process-grid{
+    margin-top:55px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+}
+
+.process-step{
+    padding:35px;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+}
+
+.process-step span{
+    color:var(--gold);
+    font-size:12px;
+    letter-spacing:2px;
+    font-weight:800;
+}
+
+.process-step h3{
+    font-family:Cinzel,serif;
+    font-size:25px;
+    margin-top:28px;
+}
+
+.process-step p{
+    color:#888;
+    font-size:14px;
+    margin-top:10px;
+}
+
+/* CONTACT */
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:.85fr 1.15fr;
+    gap:70px;
+    align-items:start;
+}
+
+.contact-info h2{
+    font-family:Cinzel,serif;
+    font-size:clamp(35px,5vw,58px);
+    line-height:1.05;
+}
+
+.contact-info > p{
+    color:#999;
+    margin-top:20px;
+    max-width:480px;
+}
+
+.contact-links{
+    margin-top:35px;
+    display:grid;
+    gap:12px;
+}
+
+.contact-link{
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:18px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    transition:.25s;
+}
+
+.contact-link:hover{
+    border-color:rgba(201,164,92,.4);
+}
+
+.contact-link small{
+    color:#777;
+    display:block;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.contact-link strong{
+    display:block;
+    margin-top:3px;
+    font-size:15px;
+}
+
+.contact-link span{
+    color:var(--gold);
+    font-size:20px;
+}
+
+.form-box{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:35px;
+}
+
+.form-title{
+    font-family:Cinzel,serif;
+    font-size:27px;
+}
+
+.form-subtitle{
+    color:#777;
+    font-size:13px;
+    margin-top:5px;
+    margin-bottom:25px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+}
+
+.field{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.field.full{
+    grid-column:1/-1;
+}
+
+.field label{
+    color:#999;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    font-weight:700;
+}
+
+.field input,
+.field select,
+.field textarea{
+    width:100%;
+    border:1px solid var(--line);
+    outline:0;
+    background:#0c0c0c;
+    color:white;
+    border-radius:12px;
+    padding:15px;
+    transition:.2s;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+    border-color:rgba(201,164,92,.6);
+}
+
+.field textarea{
+    min-height:135px;
+    resize:vertical;
+}
+
+.field input[type="file"]{
+    padding:12px;
+    color:#888;
+}
+
+.form-note{
+    color:#666;
+    font-size:11px;
+    margin-top:12px;
+}
+
+.form-button{
+    width:100%;
+    margin-top:20px;
+}
+
+/* FAQ */
+
+.faq{
+    background:#0d0d0d;
+}
+
+.faq-list{
+    max-width:850px;
+    margin:50px auto 0;
+}
+
+.faq-item{
+    border-bottom:1px solid var(--line);
+}
+
+.faq-question{
+    width:100%;
+    border:0;
+    background:none;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    text-align:left;
+    padding:23px 0;
+    cursor:pointer;
+    font-weight:700;
+}
+
+.faq-question span{
+    color:var(--gold);
+    font-size:22px;
+    transition:.3s;
+}
+
+.faq-answer{
+    max-height:0;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.faq-answer p{
+    color:#888;
+    padding-bottom:23px;
+    font-size:14px;
+}
+
+.faq-item.open .faq-answer{
+    max-height:200px;
+}
+
+.faq-item.open .faq-question span{
+    transform:rotate(45deg);
+}
+
+/* MAP CTA */
+
+.map-section{
+    padding-top:0;
+}
+
+.map-card{
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:50px;
+    text-align:center;
+    background:
+        radial-gradient(circle at center,rgba(201,164,92,.1),transparent 55%),
+        var(--card);
+}
+
+.map-card h2{
+    font-family:Cinzel,serif;
+    font-size:clamp(30px,5vw,52px);
+}
+
+.map-card p{
+    color:#888;
+    margin:15px auto 25px;
+    max-width:600px;
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid var(--line);
+    padding:35px 0;
+}
+
+.footer-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.footer-logo{
+    font-family:Cinzel,serif;
+    letter-spacing:3px;
+}
+
+.footer-logo span{
+    color:var(--gold);
+}
+
+.footer-copy{
+    color:#666;
+    font-size:12px;
+}
+
+/* MOBILE BAR */
+
+.mobile-bar{
+    display:none;
+}
+
+/* REVEAL */
+
+.reveal{
+    opacity:0;
+    transform:translateY(25px);
+    transition:.7s ease;
+}
+
+.reveal.visible{
+    opacity:1;
+    transform:none;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    section{
+        padding:80px 0;
+    }
+
+    .container{
+        width:min(var(--container),calc(100% - 28px));
+    }
+
+    .nav{
+        min-height:70px;
+    }
+
+    .nav-links{
+        position:fixed;
+        left:14px;
+        right:14px;
+        top:78px;
+        display:none;
+        flex-direction:column;
+        align-items:stretch;
+        padding:15px;
+        background:#111;
+        border:1px solid var(--line);
+        border-radius:18px;
+    }
+
+    .nav-links.open{
+        display:flex;
+    }
+
+    .nav-links a{
+        padding:13px;
+    }
+
+    .nav-cta{
+        text-align:center;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero{
+        padding-top:120px;
+        min-height:auto;
+    }
+
+    .hero h1{
+        font-size:clamp(42px,13vw,70px);
+        letter-spacing:-1px;
+    }
+
+    .hero-description{
+        font-size:16px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .hero-points{
+        grid-template-columns:1fr;
+        gap:0;
+        margin-top:45px;
+    }
+
+    .hero-point,
+    .hero-point:not(:first-child){
+        padding:18px 0;
+        border-right:0;
+        border-bottom:1px solid var(--line);
+    }
+
+    .hero-point:last-child{
+        border-bottom:0;
+    }
+
+    .about-grid,
+    .contact-grid{
+        grid-template-columns:1fr;
+        gap:40px;
+    }
+
+    .about-card{
+        padding:30px;
+    }
+
+    .services-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .why-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .process-grid{
+        grid-template-columns:1fr;
+    }
+
+    .price-highlight{
+        flex-direction:column;
+        align-items:flex-start;
+        padding:28px;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .field.full{
+        grid-column:auto;
+    }
+
+    .contact-grid{
+        gap:45px;
+    }
+
+    .mobile-bar{
+        display:grid;
+        position:fixed;
+        z-index:900;
+        left:10px;
+        right:10px;
+        bottom:10px;
+        grid-template-columns:1fr 1fr;
+        gap:8px;
+        padding:7px;
+        background:rgba(15,15,15,.94);
+        backdrop-filter:blur(15px);
+        border:1px solid var(--line);
+        border-radius:17px;
+    }
+
+    .mobile-bar a{
+        min-height:48px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        border-radius:12px;
+        font-size:12px;
+        font-weight:800;
+        text-transform:uppercase;
+    }
+
+    .mobile-call{
+        background:#fff;
+        color:#090909;
+    }
+
+    .mobile-wa{
+        background:#1c1c1c;
+        color:var(--gold2);
+        border:1px solid rgba(201,164,92,.3);
+    }
+
+    footer{
+        padding-bottom:90px;
+    }
+}
+
+@media(max-width:560px){
+
+    .section-title{
+        font-size:36px;
+    }
+
+    .section-text{
+        font-size:15px;
+    }
+
+    .services-grid,
+    .why-grid{
+        grid-template-columns:1fr;
+    }
+
+    .service{
+        min-height:auto;
+        padding:25px;
+    }
+
+    .service h3{
+        margin-top:25px;
+    }
+
+    .price-row{
+        padding:19px 17px;
+        gap:12px;
+    }
+
+    .price-name strong{
+        font-size:13px;
+    }
+
+    .price-name span{
+        font-size:11px;
+    }
+
+    .price-value{
+        font-size:13px;
+    }
+
+    .form-box{
+        padding:23px 17px;
+    }
+
+    .form-title{
+        font-size:24px;
+    }
+
+    .map-card{
+        padding:35px 20px;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+}
+</style>
 </head>
 
 <body>
 
 <header id="header">
-
     <div class="container nav">
-
-        <a href="#top" class="logo">
-            AKKER<span>MAN</span>
-        </a>
+        <a href="#top" class="logo">AKKER<span>MAN</span></a>
 
         <nav class="nav-links" id="navLinks">
-
-            <a href="#about">O NAS</a>
-            <a href="#services">USŁUGI</a>
-            <a href="#gallery">REALIZACJE</a>
-            <a href="#prices">CENY</a>
-            <a href="#contact">KONTAKT</a>
-
-            <a
-                class="nav-cta"
-                href="tel:+48789590616"
-            >
-                ZADZWOŃ
-            </a>
-
+            <a href="#o-nas">O nas</a>
+            <a href="#uslugi">Usługi</a>
+            <a href="#ceny">Ceny</a>
+            <a href="#kontakt" class="nav-cta">WhatsApp</a>
         </nav>
 
-        <div
-            class="menu"
-            id="menu"
-            aria-label="Menu"
-        >
-            ☰
-        </div>
-
+        <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
     </div>
-
 </header>
 
 <main id="top">
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- HERO -->
 
 <section class="hero">
+    <div class="container hero-content reveal">
 
-    <div class="container">
+        <div class="hero-kicker">Złota rączka • Wrocław</div>
 
-        <div class="hero-content reveal">
+        <h1>
+            DOBRA ROBOTA.<br>
+            <span>BEZ KOMBINOWANIA.</span>
+        </h1>
 
-            <div class="eyebrow">
-                WROCŁAW & OKOLICE
+        <p class="hero-description">
+            Hydraulika, montaż, naprawy, prace budowlane i wykończeniowe.
+            Konkretna rozmowa, jasne zasady i cena ustalona przed rozpoczęciem pracy.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#kontakt" class="btn btn-primary">
+                Opisz swoją pracę →
+            </a>
+
+            <a href="tel:+48789590616" class="btn btn-secondary">
+                ☎ Zadzwoń
+            </a>
+        </div>
+
+        <div class="hero-points">
+
+            <div class="hero-point">
+                <div class="point-number">01</div>
+                <strong>KONKRETNA WYCENA</strong>
+                <p>Najpierw poznajesz orientacyjny koszt.</p>
             </div>
 
-            <h1>
-                DOBRA ROBOTA.
-                <br>
-                <span>BEZ KOMBINOWANIA.</span>
-            </h1>
-
-            <p class="hero-text">
-                AKKERMAN — złota rączka do zadań małych,
-                dużych i tych, których nikt nie chce się podjąć.
-                Hydraulika, montaż, naprawy, budowlanka
-                i wykończenia.
-            </p>
-
-            <div class="hero-buttons">
-
-                <a
-                    href="#contact"
-                    class="btn btn-primary"
-                >
-                    WYŚLIJ ZDJĘCIE PROBLEMU
-                </a>
-
-                <a
-                    href="tel:+48789590616"
-                    class="btn btn-outline"
-                >
-                    ZADZWOŃ
-                </a>
-
+            <div class="hero-point">
+                <div class="point-number">02</div>
+                <strong>WROCŁAW + OKOLICE</strong>
+                <p>Obsługujemy Wrocław i pobliskie miejscowości.</p>
             </div>
 
-            <div class="hero-trust">
-
-                <div class="trust-item">
-                    <strong>01</strong>
-                    Szybka wycena
-                </div>
-
-                <div class="trust-item">
-                    <strong>02</strong>
-                    Wrocław i okolice
-                </div>
-
-                <div class="trust-item">
-                    <strong>03</strong>
-                    Cena przed pracą
-                </div>
-
+            <div class="hero-point">
+                <div class="point-number">03</div>
+                <strong>BEZ NIESPODZIANEK</strong>
+                <p>Zakres i cena ustalane przed pracą.</p>
             </div>
 
         </div>
-
     </div>
-
 </section>
 
-<!-- =========================
-     ABOUT
-========================= -->
+<!-- ABOUT -->
 
-<section id="about">
+<section class="about" id="o-nas">
+    <div class="container about-grid">
 
-    <div class="container">
+        <div class="reveal">
+            <div class="section-label">O AKKERMAN</div>
 
-        <div class="about-grid">
-
-            <div class="about-image reveal"></div>
-
-            <div class="about-copy reveal">
-
-                <div class="section-kicker">
-                    AKKERMAN
-                </div>
-
-                <h2>
-                    JEDEN FACHOWIEC.
-                    <br>
-                    <span class="gold">
-                        WIELE ZADAŃ.
-                    </span>
-                </h2>
-
-                <div class="gold-line"></div>
-
-                <p>
-                    Nie potrzebujesz pięciu ekip do pięciu
-                    różnych problemów.
-                </p>
-
-                <p>
-                    AKKERMAN zajmuje się hydrauliką,
-                    montażem, naprawami domowymi,
-                    pracami budowlanymi i wykończeniowymi.
-                </p>
-
-                <p>
-                    Mała naprawa? Duży zakres prac?
-                    Najpierw zobaczymy problem,
-                    potem ustalimy zakres i cenę.
-                </p>
-
-                <a
-                    href="#contact"
-                    class="btn btn-outline"
-                >
-                    OPISZ SWÓJ PROBLEM
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- =========================
-     STATS
-========================= -->
-
-<div class="stats">
-
-    <div class="container stats-grid">
-
-        <div class="stat">
-            <strong>01</strong>
-            <span>Fachowiec</span>
-        </div>
-
-        <div class="stat">
-            <strong>∞</strong>
-            <span>Możliwości</span>
-        </div>
-
-        <div class="stat">
-            <strong>24/7</strong>
-            <span>Kontakt online</span>
-        </div>
-
-        <div class="stat">
-            <strong>WRO</strong>
-            <span>Wrocław</span>
-        </div>
-
-    </div>
-
-</div>
-
-<!-- =========================
-     SERVICES
-========================= -->
-
-<section id="services">
-
-    <div class="container">
-
-        <div class="section-head reveal">
-
-            <div class="section-kicker">
-                CO ROBIMY
-            </div>
-
-            <h2>
-                OD MAŁEJ NAPRAWY
-                <br>
-                <span class="gold">
-                    DO DUŻEGO REMONTU.
-                </span>
+            <h2 class="section-title">
+                Fachowiec, którego
+                <span class="gold">nie trzeba pilnować.</span>
             </h2>
 
-            <p>
-                Jeden kontakt — wiele rodzajów prac.
+            <p class="section-text">
+                AKKERMAN to kompleksowa pomoc przy pracach w domu,
+                mieszkaniu, biurze i lokalu. Od drobnej naprawy po większe
+                prace remontowe.
             </p>
 
+            <div class="check-list">
+
+                <div class="check">
+                    <div class="check-icon">✓</div>
+                    <div>
+                        <strong>Jasne zasady</strong>
+                        <p>Ustalamy zakres pracy i cenę przed rozpoczęciem.</p>
+                    </div>
+                </div>
+
+                <div class="check">
+                    <div class="check-icon">✓</div>
+                    <div>
+                        <strong>Jedna osoba do wielu zadań</strong>
+                        <p>Nie musisz szukać kilku fachowców do prostych prac.</p>
+                    </div>
+                </div>
+
+                <div class="check">
+                    <div class="check-icon">✓</div>
+                    <div>
+                        <strong>Kontakt bez komplikacji</strong>
+                        <p>Napisz na WhatsApp, opisz problem i działamy.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="about-card reveal">
+            <div class="about-card-number">01</div>
+            <h3>OD MAŁEJ NAPRAWY DO WIĘKSZEGO REMONTU</h3>
+            <p>
+                Potrzebujesz zamontować mebel? Naprawić cieknący kran?
+                Wyregulować drzwi? Odświeżyć ściany? A może zrobić większy
+                zakres prac?
+            </p>
+            <p>
+                Wyślij opis i zdjęcie przez WhatsApp. Zobaczymy, co trzeba zrobić
+                i ustalimy szczegóły.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- SERVICES -->
+
+<section id="uslugi">
+    <div class="container">
+
+        <div class="reveal">
+            <div class="section-label">USŁUGI</div>
+            <h2 class="section-title">
+                Jedna ekipa.<br>
+                <span class="gold">Wiele problemów.</span>
+            </h2>
+            <p class="section-text">
+                Zakres prac nie kończy się na jednej kategorii.
+                Jeśli nie widzisz swojej usługi — po prostu napisz.
+            </p>
         </div>
 
         <div class="services-grid">
@@ -1363,8 +1275,8 @@
                 <div class="service-number">01 / HYDRAULIKA</div>
                 <h3>Hydraulika</h3>
                 <p>
-                    Krany, syfony, umywalki, toalety,
-                    odpływy, podłączenia i naprawy.
+                    Krany, syfony, umywalki, WC, podłączenia, przecieki
+                    i drobne naprawy instalacji.
                 </p>
             </article>
 
@@ -1372,8 +1284,8 @@
                 <div class="service-number">02 / MONTAŻ</div>
                 <h3>Montaż mebli</h3>
                 <p>
-                    Szafy, komody, kuchnie, półki,
-                    meble i wyposażenie.
+                    Meble kuchenne, szafy, komody, półki, stoły
+                    i wyposażenie mieszkania.
                 </p>
             </article>
 
@@ -1381,8 +1293,8 @@
                 <div class="service-number">03 / NAPRAWY</div>
                 <h3>Naprawy domowe</h3>
                 <p>
-                    Wszystko to, co trzeba naprawić,
-                    poprawić lub zamontować.
+                    Drzwi, zawiasy, zamki, karnisze, uchwyty,
+                    mocowania i inne drobne problemy.
                 </p>
             </article>
 
@@ -1390,8 +1302,8 @@
                 <div class="service-number">04 / BUDOWA</div>
                 <h3>Prace budowlane</h3>
                 <p>
-                    Drobne prace murarskie, GK,
-                    przygotowanie powierzchni i więcej.
+                    Drobne prace murarskie, zabudowy, GK,
+                    przygotowanie powierzchni i inne prace.
                 </p>
             </article>
 
@@ -1399,8 +1311,8 @@
                 <div class="service-number">05 / WYKOŃCZENIE</div>
                 <h3>Wykończenia</h3>
                 <p>
-                    Malowanie, poprawki, montaż
-                    i prace wykończeniowe.
+                    Malowanie, poprawki, silikonowanie,
+                    przygotowanie ścian i prace wykończeniowe.
                 </p>
             </article>
 
@@ -1408,1221 +1320,566 @@
                 <div class="service-number">06 / WYPOSAŻENIE</div>
                 <h3>Montaż wyposażenia</h3>
                 <p>
-                    Lustra, uchwyty, lampy,
-                    akcesoria i wyposażenie domu.
+                    Lustra, uchwyty, karnisze, lampy, półki,
+                    telewizory i inne elementy wyposażenia.
                 </p>
             </article>
 
         </div>
-
     </div>
-
 </section>
 
-<!-- =========================
-     GALLERY
-========================= -->
+<!-- PRICES -->
 
-<section id="gallery" class="gallery">
-
+<section class="prices" id="ceny">
     <div class="container">
 
-        <div class="section-head reveal">
-
-            <div class="section-kicker">
-                NASZE REALIZACJE
-            </div>
-
-            <h2>
-                NIE MUSISZ NAM WIERZYĆ.
-                <br>
-                <span class="gold">
-                    ZOBACZ EFEKTY.
-                </span>
+        <div class="reveal">
+            <div class="section-label">CENNIK</div>
+            <h2 class="section-title">
+                Prosto.<br>
+                <span class="gold">Bez ukrytych kosztów.</span>
             </h2>
 
-            <p>
-                Przesuń separator i zobacz różnicę
-                PRZED / PO.
+            <p class="section-text">
+                Podane ceny są cenami orientacyjnymi. Ostateczna cena zależy
+                od zakresu i stopnia trudności. Wszystko ustalamy przed rozpoczęciem prac.
             </p>
-
-        </div>
-
-        <div
-            class="gallery-filter"
-            id="galleryFilter"
-        ></div>
-
-        <div
-            class="gallery-grid"
-            id="galleryGrid"
-        ></div>
-
-    </div>
-
-</section>
-
-<!-- =========================
-     PRICES
-========================= -->
-
-<section id="prices">
-
-    <div class="container">
-
-        <div class="section-head reveal">
-
-            <div class="section-kicker">
-                CENNIK
-            </div>
-
-            <h2>
-                PROSTE ZASADY.
-                <br>
-                <span class="gold">
-                    BEZ NIESPODZIANEK.
-                </span>
-            </h2>
-
-            <p>
-                Poniższe ceny są orientacyjne.
-                Dokładny koszt zależy od zakresu i warunków pracy.
-            </p>
-
         </div>
 
         <div class="price-highlight reveal">
-
             <div>
-                <small>
-                    Dojazd / wycena
-                </small>
-
-                <strong id="calloutPrice">
-                    80 zł
-                </strong>
+                <small>DROBNE ZLECENIA</small>
+                <strong>OD 80 zł</strong>
             </div>
 
-            <div>
-                <p>
-                    Cena może zostać łatwo zmieniona
-                    w jednym miejscu w kodzie.
-                </p>
-            </div>
-
+            <p>
+                Potrzebujesz szybkiej pomocy przy jednej konkretnej rzeczy?
+                Napisz i opisz problem. Po zdjęciu często możemy od razu
+                ocenić zakres pracy.
+            </p>
         </div>
 
         <div class="price-table reveal">
 
             <div class="price-row">
-                <span>Drobne naprawy</span>
-                <span class="price">od 100 zł</span>
+                <div class="price-name">
+                    <strong>Drobne naprawy</strong>
+                    <span>regulacje, mocowania, drobne usterki</span>
+                </div>
+                <div class="price-value">od 80 zł</div>
             </div>
 
             <div class="price-row">
-                <span>Hydraulika</span>
-                <span class="price">od 120 zł</span>
+                <div class="price-name">
+                    <strong>Montaż mebli</strong>
+                    <span>meble, szafy, komody, półki</span>
+                </div>
+                <div class="price-value">od 100 zł</div>
             </div>
 
             <div class="price-row">
-                <span>Montaż mebli</span>
-                <span class="price">od 120 zł</span>
+                <div class="price-name">
+                    <strong>Hydraulika</strong>
+                    <span>krany, syfony, umywalki, WC, podłączenia</span>
+                </div>
+                <div class="price-value">od 120 zł</div>
             </div>
 
             <div class="price-row">
-                <span>Montaż wyposażenia</span>
-                <span class="price">od 100 zł</span>
+                <div class="price-name">
+                    <strong>Montaż wyposażenia</strong>
+                    <span>lustra, karnisze, półki, uchwyty</span>
+                </div>
+                <div class="price-value">od 80 zł</div>
             </div>
 
             <div class="price-row">
-                <span>Drobna elektryka</span>
-                <span class="price">od 120 zł</span>
+                <div class="price-name">
+                    <strong>Drobna elektryka</strong>
+                    <span>proste prace montażowe i wymiany</span>
+                </div>
+                <div class="price-value">od 100 zł</div>
             </div>
 
             <div class="price-row">
-                <span>Malowanie / wykończenia</span>
-                <span class="price">od 45 zł/m²</span>
+                <div class="price-name">
+                    <strong>Malowanie i wykończenia</strong>
+                    <span>cena zależna od powierzchni i zakresu</span>
+                </div>
+                <div class="price-value">od 30 zł/m²</div>
             </div>
 
             <div class="price-row">
-                <span>Prace budowlane</span>
-                <span class="price">od 80 zł/m²</span>
+                <div class="price-name">
+                    <strong>Prace budowlane</strong>
+                    <span>cena zależna od rodzaju prac</span>
+                </div>
+                <div class="price-value">od 80 zł/m²</div>
             </div>
 
             <div class="price-row">
-                <span>Większy remont</span>
-                <span class="price">wycena</span>
+                <div class="price-name">
+                    <strong>Większe remonty</strong>
+                    <span>indywidualna wycena po poznaniu zakresu</span>
+                </div>
+                <div class="price-value">wycena</div>
             </div>
 
         </div>
-
-        <p class="price-note">
-            * Cena końcowa zależy od zakresu prac,
-            stopnia skomplikowania, materiałów, części
-            oraz warunków na miejscu. Zakres i koszt
-            ustalamy przed rozpoczęciem prac.
-        </p>
-
     </div>
-
 </section>
 
-<!-- =========================
-     WHY AKKERMAN
-========================= -->
+<!-- WHY -->
 
 <section>
-
     <div class="container">
 
-        <div class="section-head reveal">
-
-            <div class="section-kicker">
-                DLACZEGO AKKERMAN
-            </div>
-
-            <h2>
-                ROBIMY TO
-                <span class="gold">
-                    JAK NALEŻY.
-                </span>
+        <div class="reveal">
+            <div class="section-label">DLACZEGO AKKERMAN</div>
+            <h2 class="section-title">
+                Mniej gadania.<br>
+                <span class="gold">Więcej roboty.</span>
             </h2>
-
         </div>
 
         <div class="why-grid">
 
-            <div class="why-card reveal">
-                <div class="why-icon">01</div>
-                <h3>Jeden fachowiec — wiele zadań</h3>
-                <p>
-                    Nie musisz szukać osobnej ekipy
-                    do każdej małej rzeczy.
-                </p>
+            <div class="why reveal">
+                <div class="why-number">01</div>
+                <h3>JASNA CENA</h3>
+                <p>Najpierw ustalamy zakres i koszt. Potem zaczynamy.</p>
             </div>
 
-            <div class="why-card reveal">
-                <div class="why-icon">02</div>
-                <h3>Cena ustalona przed pracą</h3>
-                <p>
-                    Najpierw ustalamy zakres,
-                    potem działamy.
-                </p>
+            <div class="why reveal">
+                <div class="why-number">02</div>
+                <h3>ELASTYCZNY ZAKRES</h3>
+                <p>Od jednej drobnej naprawy po większy zakres prac.</p>
             </div>
 
-            <div class="why-card reveal">
-                <div class="why-icon">03</div>
-                <h3>Szybka wycena ze zdjęcia</h3>
-                <p>
-                    Nie wiesz, co dokładnie trzeba zrobić?
-                    Wyślij zdjęcie.
-                </p>
+            <div class="why reveal">
+                <div class="why-number">03</div>
+                <h3>WROCŁAW</h3>
+                <p>Obsługujemy Wrocław i okolice.</p>
             </div>
 
-            <div class="why-card reveal">
-                <div class="why-icon">04</div>
-                <h3>Wrocław i okolice</h3>
-                <p>
-                    Dojazd do klienta i realizacja
-                    prac na miejscu.
-                </p>
+            <div class="why reveal">
+                <div class="why-number">04</div>
+                <h3>ŁATWY KONTAKT</h3>
+                <p>WhatsApp, telefon i szybka odpowiedź na zgłoszenie.</p>
             </div>
 
         </div>
-
     </div>
-
 </section>
 
-<!-- =========================
-     PROCESS
-========================= -->
+<!-- PROCESS -->
 
-<section>
-
+<section class="process">
     <div class="container">
 
-        <div class="section-head reveal">
-
-            <div class="section-kicker">
-                JAK TO DZIAŁA
-            </div>
-
-            <h2>
-                OD PROBLEMU
-                <br>
-                <span class="gold">
-                    DO ROZWIĄZANIA.
-                </span>
+        <div class="reveal">
+            <div class="section-label">JAK TO DZIAŁA</div>
+            <h2 class="section-title">
+                Trzy kroki.<br>
+                <span class="gold">I po problemie.</span>
             </h2>
-
         </div>
 
         <div class="process-grid">
 
-            <div class="process reveal">
-                <strong>01</strong>
-                <h3>Kontakt</h3>
+            <div class="process-step reveal">
+                <span>01 — NAPISZ</span>
+                <h3>Opisz problem</h3>
                 <p>
-                    Dzwonisz, piszesz na WhatsApp
-                    albo wysyłasz zdjęcie.
+                    Wypełnij formularz i napisz, czego potrzebujesz.
+                    Możesz również dodać zdjęcie.
                 </p>
             </div>
 
-            <div class="process reveal">
-                <strong>02</strong>
-                <h3>Ocena</h3>
+            <div class="process-step reveal">
+                <span>02 — USTALAMY</span>
+                <h3>Rozmawiamy</h3>
                 <p>
-                    Ustalamy zakres i sposób wykonania.
+                    Zgłoszenie trafia bezpośrednio do WhatsApp.
+                    Ustalamy szczegóły, termin i cenę.
                 </p>
             </div>
 
-            <div class="process reveal">
-                <strong>03</strong>
-                <h3>Wycena</h3>
+            <div class="process-step reveal">
+                <span>03 — DZIAŁAMY</span>
+                <h3>Robota zrobiona</h3>
                 <p>
-                    Znasz koszt przed rozpoczęciem prac.
-                </p>
-            </div>
-
-            <div class="process reveal">
-                <strong>04</strong>
-                <h3>Gotowe</h3>
-                <p>
-                    Przyjeżdżamy i robimy robotę.
+                    Przyjeżdżamy i wykonujemy ustalony zakres prac.
                 </p>
             </div>
 
         </div>
-
     </div>
-
 </section>
 
-<!-- =========================
-     REVIEWS
-========================= -->
+<!-- CONTACT -->
 
-<section>
+<section id="kontakt">
+    <div class="container contact-grid">
 
-    <div class="container">
+        <div class="contact-info reveal">
 
-        <div class="reviews-box reveal">
-
-            <div class="stars">
-                ★★★★★
-            </div>
+            <div class="section-label">KONTAKT</div>
 
             <h2>
-                SPRAWDŹ NAS
-                <span class="gold">W GOOGLE</span>
+                Masz problem?<br>
+                <span class="gold">Napisz.</span>
             </h2>
 
             <p>
-                Zobacz opinie klientów i realizacje
-                firmy AKKERMAN we Wrocławiu.
+                Wypełnij formularz. Po kliknięciu przycisku WhatsApp otworzy się
+                z gotową wiadomością zawierającą wszystkie podane informacje.
             </p>
 
-            <div class="hero-buttons" style="justify-content:center">
+            <div class="contact-links">
 
-                <a
-                    href="https://share.google/MWRRZZTMJL54FV0cY"
-                    target="_blank"
-                    rel="noopener"
-                    class="btn btn-primary"
-                >
-                    ZOBACZ GOOGLE MAPS
+                <a href="tel:+48789590616" class="contact-link">
+                    <div>
+                        <small>Telefon</small>
+                        <strong>+48 789 590 616</strong>
+                    </div>
+                    <span>→</span>
+                </a>
+
+                <a href="https://wa.me/48789590616" target="_blank" rel="noopener" class="contact-link">
+                    <div>
+                        <small>WhatsApp</small>
+                        <strong>Napisz bezpośrednio</strong>
+                    </div>
+                    <span>→</span>
+                </a>
+
+                <a href="https://share.google/MWRRZZTMJL54FV0cY" target="_blank" rel="noopener" class="contact-link">
+                    <div>
+                        <small>Google</small>
+                        <strong>Sprawdź AKKERMAN</strong>
+                    </div>
+                    <span>→</span>
                 </a>
 
             </div>
-
         </div>
 
-    </div>
+        <div class="form-box reveal">
 
-</section>
+            <div class="form-title">OPISZ SWOJĄ PRACĘ</div>
 
-<!-- =========================
-     CONTACT
-========================= -->
-
-<section
-    id="contact"
-    class="contact-section"
->
-
-    <div class="container">
-
-        <div class="contact-grid">
-
-            <div class="contact-info reveal">
-
-                <div class="section-kicker">
-                    KONTAKT
-                </div>
-
-                <h2>
-                    MASZ COŚ
-                    <span class="gold">
-                        DO ZROBIENIA?
-                    </span>
-                </h2>
-
-                <p>
-                    Wyślij zdjęcie problemu.
-                    Opisz krótko, co trzeba zrobić.
-                    Skontaktujemy się i ustalimy dalsze kroki.
-                </p>
-
-                <div class="contact-links">
-
-                    <a
-                        class="contact-link"
-                        href="tel:+48789590616"
-                    >
-                        <small>TELEFON</small>
-                        +48 789 590 616
-                    </a>
-
-                    <a
-                        class="contact-link"
-                        href="https://wa.me/48789590616"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        <small>WHATSAPP</small>
-                        Napisz na WhatsApp
-                    </a>
-
-                    <a
-                        class="contact-link"
-                        href="https://share.google/MWRRZZTMJL54FV0cY"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        <small>GOOGLE MAPS</small>
-                        AKKERMAN — Wrocław
-                    </a>
-
-                </div>
-
+            <div class="form-subtitle">
+                Uzupełnij dane — resztę załatwimy na WhatsApp.
             </div>
 
-            <form
-                class="contact-form reveal"
-                id="contactForm"
-                action="/api/contact"
-                method="POST"
-                enctype="multipart/form-data"
-            >
+            <form id="contactForm">
 
                 <div class="form-grid">
 
                     <div class="field">
-
-                        <label for="name">
-                            Imię
-                        </label>
-
-                        <input
-                            id="name"
-                            name="name"
-                            type="text"
-                            required
-                            placeholder="Twoje imię"
-                        >
-
+                        <label for="name">Imię</label>
+                        <input id="name" name="name" type="text" placeholder="Jan" required>
                     </div>
 
                     <div class="field">
-
-                        <label for="phone">
-                            Telefon
-                        </label>
-
-                        <input
-                            id="phone"
-                            name="phone"
-                            type="tel"
-                            required
-                            placeholder="+48..."
-                        >
-
+                        <label for="phone">Telefon</label>
+                        <input id="phone" name="phone" type="tel" placeholder="+48..." required>
                     </div>
 
                     <div class="field full">
+                        <label for="service">Rodzaj usługi</label>
 
-                        <label for="service">
-                            Czego potrzebujesz?
-                        </label>
-
-                        <select
-                            id="service"
-                            name="service"
-                        >
-
-                            <option value="">
-                                Wybierz kategorię
-                            </option>
-
-                            <option>
-                                Hydraulika
-                            </option>
-
-                            <option>
-                                Montaż mebli
-                            </option>
-
-                            <option>
-                                Naprawa
-                            </option>
-
-                            <option>
-                                Prace budowlane
-                            </option>
-
-                            <option>
-                                Wykończenie
-                            </option>
-
-                            <option>
-                                Inne
-                            </option>
-
+                        <select id="service" name="service" required>
+                            <option value="">Wybierz kategorię</option>
+                            <option>Hydraulika</option>
+                            <option>Montaż mebli</option>
+                            <option>Naprawy domowe</option>
+                            <option>Prace budowlane</option>
+                            <option>Wykończenia</option>
+                            <option>Montaż wyposażenia</option>
+                            <option>Inne</option>
                         </select>
-
                     </div>
 
                     <div class="field full">
-
-                        <label for="message">
-                            Opis problemu
-                        </label>
+                        <label for="message">Opis problemu</label>
 
                         <textarea
                             id="message"
                             name="message"
-                            placeholder="Opisz krótko, co trzeba zrobić..."
+                            placeholder="Np. cieknie kran w kuchni, potrzebuję również zamontować nową baterię..."
                             required
                         ></textarea>
-
                     </div>
 
                     <div class="field full">
+                        <label for="photo">Zdjęcie — opcjonalnie</label>
 
-                        <label>
-                            Zdjęcie problemu
-                        </label>
-
-                        <div class="file-box">
-
-                            📷 Dodaj zdjęcie
-
-                            <input
-                                type="file"
-                                name="photo"
-                                accept="image/*"
-                            >
-
-                        </div>
-
+                        <input
+                            id="photo"
+                            name="photo"
+                            type="file"
+                            accept="image/*"
+                        >
                     </div>
 
                 </div>
 
-                <button
-                    type="submit"
-                    class="btn btn-primary"
-                >
-                    WYŚLIJ ZGŁOSZENIE
+                <button type="submit" class="btn btn-primary form-button">
+                    WYŚLIJ ZGŁOSZENIE NA WHATSAPP →
                 </button>
 
-                <div
-                    id="formStatus"
-                    class="form-status"
-                ></div>
+                <div class="form-note">
+                    Po kliknięciu otworzy się WhatsApp z przygotowaną wiadomością.
+                    Zdjęcie możesz dodać bezpośrednio w rozmowie.
+                </div>
 
             </form>
 
         </div>
 
     </div>
-
 </section>
 
-<!-- =========================
-     FAQ
-========================= -->
+<!-- FAQ -->
 
-<section>
-
+<section class="faq">
     <div class="container">
 
-        <div class="section-head reveal">
-
-            <div class="section-kicker">
-                FAQ
-            </div>
-
-            <h2>
-                CZĘSTE
-                <span class="gold">
-                    PYTANIA.
-                </span>
+        <div class="reveal" style="text-align:center;">
+            <div class="section-label">FAQ</div>
+            <h2 class="section-title" style="margin:auto;">
+                Najczęstsze pytania
             </h2>
-
         </div>
 
-        <div class="faq">
+        <div class="faq-list">
 
-            <div class="faq-item">
-
-                <button class="faq-question">
-                    Czy obsługujecie małe zlecenia?
-                    <span>+</span>
-                </button>
-
-                <div class="faq-answer">
-                    <div class="faq-answer-inner">
-                        Tak. Zajmujemy się zarówno drobnymi
-                        naprawami, jak i większymi zakresami prac.
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="faq-item">
-
+            <div class="faq-item reveal">
                 <button class="faq-question">
                     Czy mogę wysłać zdjęcie problemu?
                     <span>+</span>
                 </button>
-
                 <div class="faq-answer">
-                    <div class="faq-answer-inner">
-                        Tak. Im lepiej widać problem,
-                        tym łatwiej ocenić zakres prac.
-                    </div>
+                    <p>
+                        Tak. Możesz dodać zdjęcie w formularzu, a następnie
+                        dołączyć je bezpośrednio w rozmowie WhatsApp.
+                    </p>
                 </div>
-
             </div>
 
-            <div class="faq-item">
-
+            <div class="faq-item reveal">
                 <button class="faq-question">
-                    Czy cena jest ustalana przed pracą?
+                    Czy cena na stronie jest ostateczna?
                     <span>+</span>
                 </button>
-
                 <div class="faq-answer">
-                    <div class="faq-answer-inner">
-                        Tak. Zakres i koszt ustalamy
-                        przed rozpoczęciem prac.
-                    </div>
+                    <p>
+                        Nie. Ceny są orientacyjne. Ostateczna cena zależy od
+                        zakresu i trudności pracy. Ustalamy ją przed rozpoczęciem.
+                    </p>
                 </div>
-
             </div>
 
-            <div class="faq-item">
-
+            <div class="faq-item reveal">
                 <button class="faq-question">
-                    Czy dojeżdżacie poza Wrocław?
+                    Czy obsługujecie okolice Wrocławia?
                     <span>+</span>
                 </button>
-
                 <div class="faq-answer">
-                    <div class="faq-answer-inner">
-                        Obsługujemy Wrocław i okolice.
-                        Szczegóły dojazdu ustalamy indywidualnie.
-                    </div>
+                    <p>
+                        Tak. Obsługujemy Wrocław oraz okoliczne miejscowości.
+                        Napisz, gdzie znajduje się zlecenie.
+                    </p>
                 </div>
+            </div>
 
+            <div class="faq-item reveal">
+                <button class="faq-question">
+                    Mojej usługi nie ma na liście. Co zrobić?
+                    <span>+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>
+                        Napisz. Lista przedstawia najczęstsze prace,
+                        ale wiele zleceń możemy ustalić indywidualnie.
+                    </p>
+                </div>
             </div>
 
         </div>
-
     </div>
-
 </section>
 
-<!-- =========================
-     FINAL CTA
-========================= -->
+<!-- MAP CTA -->
 
-<section class="final-cta">
+<section class="map-section">
+    <div class="container">
 
-    <div class="container reveal">
+        <div class="map-card reveal">
 
-        <div class="section-kicker">
-            AKKERMAN
-        </div>
+            <div class="section-label">WROCŁAW + OKOLICE</div>
 
-        <h2>
-            MASZ PROBLEM?
-            <br>
-            <span class="gold">
-                ZRÓBMY Z NIM PORZĄDEK.
-            </span>
-        </h2>
+            <h2>
+                AKKERMAN.<br>
+                <span class="gold">Złota rączka.</span>
+            </h2>
 
-        <p>
-            Zadzwoń albo wyślij zdjęcie.
-            Resztą zajmiemy się razem.
-        </p>
-
-        <div class="hero-buttons" style="justify-content:center">
+            <p>
+                Potrzebujesz fachowca? Nie szukaj dalej.
+                Opisz problem i przejdźmy do konkretów.
+            </p>
 
             <a
-                href="tel:+48789590616"
-                class="btn btn-primary"
-            >
-                ZADZWOŃ
-            </a>
-
-            <a
-                href="https://wa.me/48789590616"
+                href="https://share.google/MWRRZZTMJL54FV0cY"
                 target="_blank"
                 rel="noopener"
-                class="btn btn-outline"
+                class="btn btn-secondary"
             >
-                WHATSAPP
+                ZOBACZ NAS W GOOGLE →
             </a>
 
         </div>
 
     </div>
-
 </section>
 
 </main>
 
 <footer>
-
-    <div class="container footer-grid">
-
-        <div class="footer-logo">
-            AKKER<span class="gold">MAN</span>
-        </div>
-
+    <div class="container footer-inner">
+        <div class="footer-logo">AKKER<span>MAN</span></div>
         <div class="footer-copy">
-            © <span id="year"></span> AKKERMAN.
-            Wrocław i okolice.
+            © 2026 AKKERMAN • Wrocław i okolice
         </div>
-
-        <a
-            href="https://share.google/MWRRZZTMJL54FV0cY"
-            target="_blank"
-            rel="noopener"
-            class="gold"
-        >
-            GOOGLE MAPS →
-        </a>
-
     </div>
-
 </footer>
 
 <!-- MOBILE BAR -->
 
 <div class="mobile-bar">
-
-    <a href="tel:+48789590616">
-        📞<br>
-        Zadzwoń
-    </a>
-
-    <a
-        href="https://wa.me/48789590616"
-        target="_blank"
-        rel="noopener"
-    >
-        💬<br>
-        WhatsApp
-    </a>
-
-    <a href="#contact">
-        📷<br>
-        Wyślij zdjęcie
-    </a>
-
+    <a href="tel:+48789590616" class="mobile-call">☎ Zadzwoń</a>
+    <a href="https://wa.me/48789590616" target="_blank" rel="noopener" class="mobile-wa">WhatsApp →</a>
 </div>
 
 <script>
 
-    /* ==========================================
-       SETTINGS — TU MOŻESZ ZMIENIAĆ NAJWAŻNIEJSZE
-    ========================================== */
+/* HEADER */
 
-    const SETTINGS = {
+const header = document.getElementById("header");
 
-        calloutPrice: "80 zł",
+window.addEventListener("scroll", () => {
+    header.classList.toggle("scrolled", window.scrollY > 20);
+});
 
-        phone: "+48789590616",
 
-        whatsapp: "https://wa.me/48789590616",
+/* MOBILE MENU */
 
-        googleMaps:
-            "https://share.google/MWRRZZTMJL54FV0cY"
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
 
-    };
+menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("open");
+});
 
-    document.getElementById("calloutPrice").textContent =
-        SETTINGS.calloutPrice;
-
-    /* ==========================================
-       GALLERY
-       
-       DODAWANIE NOWEJ REALIZACJI:
-       
-       1. wrzuć zdjęcie PRZED
-       2. wrzuć zdjęcie PO
-       3. skopiuj poniższy obiekt
-       4. zmień dane
-    ========================================== */
-
-    const gallery = [
-
-        {
-            category: "Hydraulika",
-            title: "Montaż nowej umywalki",
-            location: "Wrocław",
-            before: "images/gallery/work-01-before.webp",
-            after: "images/gallery/work-01-after.webp"
-        },
-
-        {
-            category: "Montaż",
-            title: "Montaż wyposażenia",
-            location: "Wrocław",
-            before: "images/gallery/work-02-before.webp",
-            after: "images/gallery/work-02-after.webp"
-        }
-
-        /*
-        NOWA REALIZACJA:
-
-        {
-            category: "Remont",
-            title: "Nowa realizacja",
-            location: "Wrocław",
-            before: "images/gallery/work-03-before.webp",
-            after: "images/gallery/work-03-after.webp"
-        }
-
-        */
-
-    ];
-
-    const galleryGrid =
-        document.getElementById("galleryGrid");
-
-    const galleryFilter =
-        document.getElementById("galleryFilter");
-
-    function renderFilters() {
-
-        const categories = [
-            "Wszystkie",
-            ...new Set(
-                gallery.map(item => item.category)
-            )
-        ];
-
-        galleryFilter.innerHTML =
-            categories.map((category, index) => `
-                <button
-                    class="filter-btn ${index === 0 ? "active" : ""}"
-                    data-category="${category}"
-                >
-                    ${category}
-                </button>
-            `).join("");
-
-        document
-            .querySelectorAll(".filter-btn")
-            .forEach(button => {
-
-                button.addEventListener("click", () => {
-
-                    document
-                        .querySelectorAll(".filter-btn")
-                        .forEach(btn =>
-                            btn.classList.remove("active")
-                        );
-
-                    button.classList.add("active");
-
-                    renderGallery(
-                        button.dataset.category
-                    );
-
-                });
-
-            });
-
-    }
-
-    function renderGallery(category = "Wszystkie") {
-
-        const items =
-            category === "Wszystkie"
-                ? gallery
-                : gallery.filter(
-                    item =>
-                        item.category === category
-                );
-
-        galleryGrid.innerHTML =
-            items.map((item, index) => `
-
-                <article class="gallery-card reveal visible">
-
-                    <div
-                        class="ba-wrapper"
-                        data-index="${index}"
-                    >
-
-                        <div class="ba-after">
-
-                            <img
-                                src="${item.after}"
-                                alt="${item.title} — po"
-                                loading="lazy"
-                            >
-
-                        </div>
-
-                        <div class="ba-before">
-
-                            <img
-                                src="${item.before}"
-                                alt="${item.title} — przed"
-                                loading="lazy"
-                            >
-
-                        </div>
-
-                        <span class="ba-label before">
-                            PRZED
-                        </span>
-
-                        <span class="ba-label after">
-                            PO
-                        </span>
-
-                        <div class="ba-handle"></div>
-
-                    </div>
-
-                    <div class="gallery-info">
-
-                        <div class="gallery-category">
-                            ${item.category}
-                        </div>
-
-                        <h3>
-                            ${item.title}
-                        </h3>
-
-                        <p>
-                            ${item.location}
-                        </p>
-
-                    </div>
-
-                </article>
-
-            `).join("");
-
-        initBeforeAfter();
-
-    }
-
-    function initBeforeAfter() {
-
-        document
-            .querySelectorAll(".ba-wrapper")
-            .forEach(wrapper => {
-
-                const before =
-                    wrapper.querySelector(".ba-before");
-
-                const handle =
-                    wrapper.querySelector(".ba-handle");
-
-                let dragging = false;
-
-                function update(clientX) {
-
-                    const rect =
-                        wrapper.getBoundingClientRect();
-
-                    let percent =
-                        ((clientX - rect.left) / rect.width) * 100;
-
-                    percent =
-                        Math.max(
-                            0,
-                            Math.min(100, percent)
-                        );
-
-                    before.style.width =
-                        percent + "%";
-
-                    handle.style.left =
-                        percent + "%";
-
-                }
-
-                wrapper.addEventListener(
-                    "pointerdown",
-                    event => {
-
-                        dragging = true;
-
-                        wrapper.setPointerCapture(
-                            event.pointerId
-                        );
-
-                        update(event.clientX);
-
-                    }
-                );
-
-                wrapper.addEventListener(
-                    "pointermove",
-                    event => {
-
-                        if (!dragging) return;
-
-                        update(event.clientX);
-
-                    }
-                );
-
-                wrapper.addEventListener(
-                    "pointerup",
-                    () => {
-                        dragging = false;
-                    }
-                );
-
-                wrapper.addEventListener(
-                    "pointercancel",
-                    () => {
-                        dragging = false;
-                    }
-                );
-
-            });
-
-    }
-
-    renderFilters();
-
-    renderGallery();
-
-    /* ==========================================
-       MOBILE MENU
-    ========================================== */
-
-    const menu =
-        document.getElementById("menu");
-
-    const navLinks =
-        document.getElementById("navLinks");
-
-    menu.addEventListener("click", () => {
-
-        navLinks.classList.toggle("open");
-
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
     });
+});
 
-    document
-        .querySelectorAll(".nav-links a")
-        .forEach(link => {
 
-            link.addEventListener("click", () => {
+/* FAQ */
 
-                navLinks.classList.remove("open");
+document.querySelectorAll(".faq-question").forEach(button => {
 
-            });
+    button.addEventListener("click", () => {
 
-        });
+        const item = button.parentElement;
 
-    /* ==========================================
-       HEADER SCROLL
-    ========================================== */
-
-    window.addEventListener("scroll", () => {
-
-        document
-            .getElementById("header")
-            .classList.toggle(
-                "scrolled",
-                window.scrollY > 50
-            );
-
-    });
-
-    /* ==========================================
-       REVEAL
-    ========================================== */
-
-    const observer =
-        new IntersectionObserver(
-            entries => {
-
-                entries.forEach(entry => {
-
-                    if (entry.isIntersecting) {
-
-                        entry.target.classList.add(
-                            "visible"
-                        );
-
-                    }
-
-                });
-
-            },
-            {
-                threshold: .1
+        document.querySelectorAll(".faq-item").forEach(other => {
+            if(other !== item){
+                other.classList.remove("open");
             }
-        );
-
-    document
-        .querySelectorAll(".reveal")
-        .forEach(element => {
-
-            observer.observe(element);
-
         });
 
-    /* ==========================================
-       FAQ
-    ========================================== */
+        item.classList.toggle("open");
 
-    document
-        .querySelectorAll(".faq-question")
-        .forEach(button => {
+    });
 
-            button.addEventListener("click", () => {
+});
 
-                const item =
-                    button.parentElement;
 
-                item.classList.toggle("active");
+/* REVEAL */
 
-                button.querySelector("span")
-                    .textContent =
-                        item.classList.contains("active")
-                            ? "−"
-                            : "+";
+const observer = new IntersectionObserver((entries) => {
 
-            });
+    entries.forEach(entry => {
 
-        });
-
-    /* ==========================================
-       FORM
-       
-       пока отправляем в Cloudflare Function
-    ========================================== */
-
-    const form =
-        document.getElementById("contactForm");
-
-    const status =
-        document.getElementById("formStatus");
-
-    form.addEventListener("submit", async event => {
-
-        event.preventDefault();
-
-        status.textContent =
-            "Wysyłanie zgłoszenia...";
-
-        const data =
-            new FormData(form);
-
-        try {
-
-            const response =
-                await fetch(
-                    "/api/contact",
-                    {
-                        method: "POST",
-                        body: data
-                    }
-                );
-
-            if (!response.ok) {
-                throw new Error();
-            }
-
-            status.textContent =
-                "Dziękujemy. Zgłoszenie zostało wysłane.";
-
-            form.reset();
-
-        } catch {
-
-            status.textContent =
-                "Nie udało się wysłać formularza. Zadzwoń lub napisz na WhatsApp.";
-
+        if(entry.isIntersecting){
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
         }
 
     });
 
-    /* ==========================================
-       YEAR
-    ========================================== */
+},{
+    threshold:.08
+});
 
-    document.getElementById("year")
-        .textContent =
-            new Date().getFullYear();
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-</script>
 
-<!-- LOCAL BUSINESS SCHEMA -->
+/* WHATSAPP FORM */
 
-<script type="application/ld+json">
+const form = document.getElementById("contactForm");
 
-{
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+form.addEventListener("submit", function(e){
 
-    "name": "AKKERMAN",
+    e.preventDefault();
 
-    "description":
-        "Złota rączka we Wrocławiu i okolicach. Hydraulika, montaż mebli, naprawy domowe, prace budowlane i wykończenia.",
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const service = document.getElementById("service").value;
+    const message = document.getElementById("message").value.trim();
+    const photo = document.getElementById("photo").files[0];
 
-    "telephone":
-        "+48789590616",
+    if(!name || !phone || !service || !message){
+        alert("Uzupełnij wszystkie wymagane pola.");
+        return;
+    }
 
-    "areaServed": {
-        "@type": "City",
-        "name": "Wrocław"
-    },
+    let text =
+`🔧 AKKERMAN — NOWE ZGŁOSZENIE
 
-    "url": "/",
+👤 Imię: ${name}
 
-    "sameAs": [
-        "https://share.google/MWRRZZTMJL54FV0cY"
-    ],
+📞 Telefon: ${phone}
 
-    "priceRange": "$$",
+🛠 Usługa: ${service}
 
-    "serviceType": [
-        "Złota rączka",
-        "Hydraulika",
-        "Montaż mebli",
-        "Naprawy domowe",
-        "Prace budowlane",
-        "Wykończenia"
-    ]
-}
+📝 Opis:
+${message}`;
+
+    if(photo){
+        text += `
+
+📷 Zdjęcie: klient doda je w tej rozmowie.`;
+    }
+
+    text += `
+
+Proszę o kontakt i wycenę.`;
+
+    const whatsappUrl =
+        "https://wa.me/48789590616?text=" +
+        encodeURIComponent(text);
+
+    window.location.href = whatsappUrl;
+
+});
 
 </script>
 
