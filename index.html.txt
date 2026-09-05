@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AKKERMAN | Luksusowe Naprawy i Wykończenia | Wrocław</title>
+    <meta name="description" content="AKKERMAN — premium naprawy, montaż i wykończenia wnętrz we Wrocławiu. Solidnie, terminowo, na jakość.">
+    
+    <!-- Премиальные шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #050505;
+            --bg-soft: #0d0d0d;
+            --accent: #D4AF37; /* Золото */
+            --accent-light: #F3E5AB;
+            --text: #ffffff;
+            --muted: #9a9a9a;
+            --border: rgba(212, 175, 55, 0.2);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+
+        /* Анимации */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Главный экран */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: 
+                linear-gradient(to right, rgba(5,5,5,0.9) 0%, rgba(5,5,5,0.4) 100%),
+                url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop') center/cover;
+            background-attachment: fixed;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 24px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero .eyebrow {
+            color: var(--accent);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3.5rem, 9vw, 6.5rem);
+            line-height: 1;
+            letter-spacing: -1px;
+            margin-bottom: 25px;
+            color: var(--accent);
+            text-shadow: 0 4px 30px rgba(0,0,0,0.8);
+        }
+
+        .hero h1 span {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-weight: 300;
+            color: var(--text);
+            letter-spacing: 3px;
+            margin-top: 15px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: #d1d1d1;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: #000;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-outline:hover {
+            background: var(--accent);
+            color: #000;
+            transform: translateY(-3px);
+        }
+
+        /* Секции */
+        .section {
+            padding: 100px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            color: var(--accent);
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .section-title p {
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Услуги */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--bg-soft);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .service-num {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 3rem;
+            color: rgba(212, 175, 55, 0.1);
+            font-family: 'Playfair Display', serif;
+            pointer-events: none;
+        }
+
+        /* О нас */
+        .about {
+            background: var(--bg-soft);
+            border-radius: 30px;
+            padding: 70px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            color: var(--muted);
+            line-height: 1.9;
+            margin-bottom: 30px;
+        }
+
+        .features {
+            display: grid;
+            gap: 20px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .feature-icon {
+            color: var(--accent);
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .feature-item h4 {
+            margin-bottom: 4px;
+        }
+
+        .feature-item p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        /* Контакты и карта */
+        .contact {
+            background: linear-gradient(135deg, #111 0%, #050505 100%);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .contact-info h2 {
+            color: var(--accent);
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-info p {
+            color: var(--muted);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .phone {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 15px;
+            transition: color 0.3s;
+        }
+
+        .phone:hover {
+            color: var(--accent);
+        }
+
+        .map-container {
+            border-radius: 20px;
+            overflow: hidden;
+            min-height: 300px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Футер */
+        footer {
+            padding: 40px 24px;
+            text-align: center;
+            color: #555;
+            font-size: 14px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* Адаптация */
+        @media (max-width: 900px) {
+            .about, .contact { grid-template-columns: 1fr; padding: 40px; gap: 30px; }
+            .hero { background-attachment: scroll; }
+        }
+
+        @media (max-width: 600px) {
+            .section { padding: 60px 16px; }
+            .about, .contact { padding: 25px; }
+            .btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ГЛАВНЫЙ ЭКРАН -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="eyebrow fade-up">Wrocław • Naprawy • Wykończenia</div>
+            <h1 class="fade-up" style="transition-delay: 0.1s;">
+                AKKERMAN
+                <span>Solidnie. Terminowo. Na jakość.</span>
+            </h1>
+            <p class="fade-up" style="transition-delay: 0.2s;">
+                Profesjonalne usługi remontowe i konserwacyjne dla Twojego domu. Działamy szybko, czysto i z dbałością o każdy detal. Nie ma rzeczy, której nie naprawimy.
+            </p>
+            <div class="fade-up" style="transition-delay: 0.3s; display: flex; gap: 15px; flex-wrap: wrap;">
+                <a href="tel:+48789590616" class="btn btn-primary">Zadzwoń teraz</a>
+                <a href="#uslugi" class="btn btn-outline">Nasze usługi</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- УСЛУГИ -->
+    <section class="section" id="uslugi">
+        <div class="section-title fade-up">
+            <h2>Kompleksowa opieka nad Twoim domem</h2>
+            <p>Od drobnych napraw po duże wykończenia. Мы делаем всё, чтобы ваш дом был в идеальном состоянии.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card fade-up">
+                <div class="service-num">01</div>
+                <h3>Naprawy</h3>
+                <p>Устранение поломок, протечек и неисправностей. Быстро и навсегда.</p>
+            </div>
+            <div class="service-card fade-up" style="transition-delay: 0.1s;">
+                <div class="service-num">02</div>
+                <h3>Montaż</h3>
+                <p>Сборка мебели, установка техники, полок и зеркал. Аккуратно и точно.</p>
+            </div>
+            <div class="service-card fade-up" style="transition-delay: 0.2s;">
+                <div class="service-num">03</div>
+                <h3>Wykończenia</h3>
+                <p>Покраска, укладка плитки, обои. Превращаем черновую отделку в искусство.</p>
+            </div>
+            <div class="service-card fade-up" style="transition-delay: 0.3s;">
+                <div class="service-num">04</div>
+                <h3>Konserwacja</h3>
+                <p>Профилактика и обслуживание, чтобы мелкие проблемы не стали большими.</p>
+            </div>
+            <div class="service-card fade-up" style="transition-delay: 0.4s;">
+                <div class="service-num">05</div>
+                <h3>Meble & Wyposażenie</h3>
+                <p>Настройка, регулировка и небольшие улучшения вашей мебели.</p>
+            </div>
+            <div class="service-card fade-up" style="transition-delay: 0.5s;">
+                <div class="service-num">06</div>
+                <h3>Prace zlecone</h3>
+                <p>Особые задачи? Опишите — найдем решение. Оценка бесплатно.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- О НАС -->
+    <section class="section">
+        <div class="about fade-up">
+            <div>
+                <h2>Почему выбирают нас?</h2>
+                <p>Мы не просто делаем работу — мы создаем пространство, в котором хочется жить. Мы приезжаем вовремя, работаем чисто, используем качественные материалы и даем гарантию на выполненную работу.</p>
+                <a href="tel:+48789590616" class="btn btn-primary" style="margin-top: 20px;">Связаться с нами</a>
+            </div>
+            <div class="features">
+                <div class="feature-item">
+                    <div class="feature-icon">✦</div>
+                    <div>
+                        <h4>Точность в деталях</h4>
+                        <p>Уделяем внимание каждому миллиметру.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⏱</div>
+                    <div>
+                        <h4>Пунктуальность</h4>
+                        <p>Приходим в обговоренное время. Ценим ваше.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🛡</div>
+                    <div>
+                        <h4>Гарантия качества</h4>
+                        <p>Несем ответственность за результат.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💎</div>
+                    <div>
+                        <h4>Премиум материалы</h4>
+                        <p>Работаем только проверенными инструментами.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- КОНТАКТЫ -->
+    <section class="section" id="kontakt">
+        <div class="contact fade-up">
+            <div class="contact-info">
+                <h2>Ваш дом заслуживает лучшего</h2>
+                <p>Оставьте заявку или просто позвоните. Мы обсудим детали и предложим лучшее решение.</p>
+                <a href="tel:+48789590616" class="phone">+48 789 590 616</a>
+                <a href="https://wa.me/48789590616" class="btn btn-primary" style="margin-bottom: 20px;">Написать в WhatsApp</a>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63371.80316347628!2d16.925168419792345!3d51.10788386975569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470fc6690a1dbb43%3A0x6b4f1a6c8e3b2c9a!2sWroc%C5%82aw!5e0!3m2!1sru!2spl!4v1700000000000!5m2!1sru!2spl" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 AKKERMAN. Все права защищены. Wrocław.</p>
+    </footer>
+
+    <!-- Скрипт для плавного появления -->
+    <script>
+        // Функция для активации анимаций при скролле
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // Инициализация первых элементов
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+
+</body>
+</html>
